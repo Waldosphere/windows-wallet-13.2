@@ -1,0 +1,49 @@
+2017-05-16 16:30:34 txNew = CTransaction(hash=3a2bb50cfa, ver=1, vin.size=1, vout.size=1, nLockTime=0)
+ _vin_      CTxIn(COutPoint(0000000000, 4294967295), coinbase 04ffff001d01041b43726561746564204279205361746f736869204e616b616d6f746f)
+ _wit_  _vout_     CTxOut(nValue=550.00000000, scriptPubKey=41a3821465ef3c4be973f9b42b7fb3)
+
+2017-05-16 16:30:34 consensus.hashGenesisBlock = d24b59252d11d8d27c52d3365e42341e341a59b9ae33847dbff2bd87510b5341
+2017-05-16 16:30:34 genesis.hashMerkleRoot = 3a2bb50cfa5ca6357a9fa46271c917edf80b6f6f2b6846196add6751aaf03378
+2017-05-16 16:30:34 txNew = CTransaction(hash=dae03c8a74, ver=1, vin.size=1, vout.size=1, nLockTime=0)
+ _vin_      CTxIn(COutPoint(0000000000, 4294967295), coinbase 04ffff001d01041b43726561746564204279205361746f736869204e616b616d6f746f)
+ _wit_  _vout_     CTxOut(nValue=50.00000000, scriptPubKey=41a3821465ef3c4be973f9b42b7fb3)
+
+2017-05-16 16:30:34 txNew = CTransaction(hash=dae03c8a74, ver=1, vin.size=1, vout.size=1, nLockTime=0)
+ _vin_      CTxIn(COutPoint(0000000000, 4294967295), coinbase 04ffff001d01041b43726561746564204279205361746f736869204e616b616d6f746f)
+ _wit_  _vout_     CTxOut(nValue=50.00000000, scriptPubKey=41a3821465ef3c4be973f9b42b7fb3)
+
+2017-05-16 16:30:34 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2017-05-16 16:30:34 Elysium version v0.13.2.0-g2581bf5
+2017-05-16 16:30:34 InitParameterInteraction: parameter interaction: -whitelistforcerelay=1 -> setting -whitelistrelay=1
+2017-05-16 16:30:34 Default data directory /root/.elysium
+2017-05-16 16:30:34 Using data directory /root/elysium-0.13.2/data
+2017-05-16 16:30:34 Using config file /root/elysium-0.13.2/data/elysium.conf
+2017-05-16 16:30:34 Using at most 125 connections (1024 file descriptors available)
+2017-05-16 16:30:34 Using 2 threads for script verification
+2017-05-16 16:30:34 libevent: getaddrinfo: address family for nodename not supported
+2017-05-16 16:30:34 Binding RPC on address :: port 10457 failed.
+2017-05-16 16:30:34 Binding RPC on address 0.0.0.0 port 10457 failed.
+2017-05-16 16:30:34 Unable to bind any endpoint for RPC server
+2017-05-16 16:30:34 Error: Unable to start HTTP server. See debug log for details.
+2017-05-16 16:30:34 Shutdown: In progress...
+2017-05-16 16:30:34 StopNode()
+2017-05-16 16:30:34 Shutdown: done
