@@ -17,7 +17,7 @@
   <string>APPL</string>
 
   <key>CFBundleGetInfoString</key>
-  <string>0.13.2, Copyright © 2009-2016 The Bitcoin Core Developers 2011-2016 The Litecoin Core developers</string>
+  <string>0.13.2, Copyright © 2009-2016 The Bitcoin Core Developers 2011-2016 The Elysium Core developers</string>
 
   <key>CFBundleShortVersionString</key>
   <string>0.13.2</string>
