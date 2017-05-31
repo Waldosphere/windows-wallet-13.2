@@ -7,7 +7,7 @@ SetCompressor /SOLID lzma
 !define REGKEY "SOFTWARE\$(^Name)"
 !define VERSION 0.13.2
 !define COMPANY "Elysium Core project"
-!define URL https://litecoin.org/
+!define URL https://elysium.org/
 
 # MUI Symbol Definitions
 !define MUI_ICON "/root/elysium-0.13.2/share/pixmaps/bitcoin.ico"
@@ -20,7 +20,7 @@ SetCompressor /SOLID lzma
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME StartMenuGroup
 !define MUI_STARTMENUPAGE_DEFAULTFOLDER "Elysium Core"
-!define MUI_FINISHPAGE_RUN $INSTDIR\litecoin-qt.exe
+!define MUI_FINISHPAGE_RUN $INSTDIR\elysium-qt.exe
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "/root/elysium-0.13.2/share/pixmaps/nsis-wizard.bmp"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
@@ -48,7 +48,7 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile /root/elysium-0.13.2/litecoin-${VERSION}-win64-setup.exe
+OutFile /root/elysium-0.13.2/elysium-${VERSION}-win64-setup.exe
 !if "64" == "64"
 InstallDir $PROGRAMFILES64\Elysium
 !else
@@ -73,12 +73,12 @@ ShowUninstDetails show
 Section -Main SEC0000
     SetOutPath $INSTDIR
     SetOverwrite on
-    File /root/elysium-0.13.2/release/litecoin-qt.exe
+    File /root/elysium-0.13.2/release/elysium-qt.exe
     File /oname=COPYING.txt /root/elysium-0.13.2/COPYING
     File /oname=readme.txt /root/elysium-0.13.2/doc/README_windows.txt
     SetOutPath $INSTDIR\daemon
-    File /root/elysium-0.13.2/release/litecoind.exe
-    File /root/elysium-0.13.2/release/litecoin-cli.exe
+    File /root/elysium-0.13.2/release/elysiumd.exe
+    File /root/elysium-0.13.2/release/elysium-cli.exe
     SetOutPath $INSTDIR\doc
     File /r /root/elysium-0.13.2/doc\*.*
     SetOutPath $INSTDIR
@@ -91,8 +91,8 @@ Section -post SEC0001
     WriteUninstaller $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     CreateDirectory $SMPROGRAMS\$StartMenuGroup
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\$(^Name).lnk" $INSTDIR\litecoin-qt.exe
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Elysium Core (testnet, 64-bit).lnk" "$INSTDIR\litecoin-qt.exe" "-testnet" "$INSTDIR\litecoin-qt.exe" 1
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\$(^Name).lnk" $INSTDIR\elysium-qt.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Elysium Core (testnet, 64-bit).lnk" "$INSTDIR\elysium-qt.exe" "-testnet" "$INSTDIR\elysium-qt.exe" 1
     CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall $(^Name).lnk" $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_END
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayName "$(^Name)"
@@ -103,10 +103,10 @@ Section -post SEC0001
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" UninstallString $INSTDIR\uninstall.exe
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoModify 1
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoRepair 1
-    WriteRegStr HKCR "litecoin" "URL Protocol" ""
-    WriteRegStr HKCR "litecoin" "" "URL:Elysium"
-    WriteRegStr HKCR "litecoin\DefaultIcon" "" $INSTDIR\litecoin-qt.exe
-    WriteRegStr HKCR "litecoin\shell\open\command" "" '"$INSTDIR\litecoin-qt.exe" "%1"'
+    WriteRegStr HKCR "elysium" "URL Protocol" ""
+    WriteRegStr HKCR "elysium" "" "URL:Elysium"
+    WriteRegStr HKCR "elysium\DefaultIcon" "" $INSTDIR\elysium-qt.exe
+    WriteRegStr HKCR "elysium\shell\open\command" "" '"$INSTDIR\elysium-qt.exe" "%1"'
 SectionEnd
 
 # Macro for selecting uninstaller sections
@@ -124,7 +124,7 @@ done${UNSECTION_ID}:
 
 # Uninstaller sections
 Section /o -un.Main UNSEC0000
-    Delete /REBOOTOK $INSTDIR\litecoin-qt.exe
+    Delete /REBOOTOK $INSTDIR\elysium-qt.exe
     Delete /REBOOTOK $INSTDIR\COPYING.txt
     Delete /REBOOTOK $INSTDIR\readme.txt
     RMDir /r /REBOOTOK $INSTDIR\daemon
@@ -145,7 +145,7 @@ Section -un.post UNSEC0001
     DeleteRegValue HKCU "${REGKEY}" Path
     DeleteRegKey /IfEmpty HKCU "${REGKEY}\Components"
     DeleteRegKey /IfEmpty HKCU "${REGKEY}"
-    DeleteRegKey HKCR "litecoin"
+    DeleteRegKey HKCR "elysium"
     RmDir /REBOOTOK $SMPROGRAMS\$StartMenuGroup
     RmDir /REBOOTOK $INSTDIR
     Push $R0

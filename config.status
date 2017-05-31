@@ -429,8 +429,8 @@ $config_links
 Configuration commands:
 $config_commands
 
-Report bugs to <https://github.com/litecoin-project/litecoin/issues>.
-Elysium Core home page: <https://litecoin.org/>."
+Report bugs to <https://github.com/elysium-project/elysium/issues>.
+Elysium Core home page: <https://elysium.org/>."
 
 ac_cs_config="'--prefix=/root/elysium-0.13.2/depends/x86_64-w64-mingw32' --disable-shared --with-pic --with-bignum=no --enable-module-recovery"
 ac_cs_version="\
@@ -808,7 +808,7 @@ if test -n "${ZSH_VERSION+set}" ; then
 fi
 
 
-    PACKAGE='litecoin'
+    PACKAGE='elysium'
     VERSION='0.13.2'
     TIMESTAMP=''
     RM='rm -f'
@@ -923,10 +923,10 @@ S["HARDENED_LDFLAGS"]=" -Wl,--dynamicbase -Wl,--nxcompat"
 S["HARDENED_CPPFLAGS"]=" -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2"
 S["HARDENED_CXXFLAGS"]=" -Wstack-protector -fstack-protector-all"
 S["RELDFLAGS"]=""
-S["BITCOIN_TX_NAME"]="litecoin-tx"
-S["BITCOIN_CLI_NAME"]="litecoin-cli"
-S["BITCOIN_GUI_NAME"]="litecoin-qt"
-S["BITCOIN_DAEMON_NAME"]="litecoind"
+S["BITCOIN_TX_NAME"]="elysium-tx"
+S["BITCOIN_CLI_NAME"]="elysium-cli"
+S["BITCOIN_GUI_NAME"]="elysium-qt"
+S["BITCOIN_DAEMON_NAME"]="elysiumd"
 S["COPYRIGHT_HOLDERS_FINAL"]="The Elysium Core developers"
 S["COPYRIGHT_HOLDERS_SUBSTITUTION"]="Elysium Core"
 S["COPYRIGHT_HOLDERS"]="The %s developers"
@@ -1148,7 +1148,7 @@ S["AUTOMAKE"]="${SHELL} /root/elysium-0.13.2/build-aux/missing automake-1.14"
 S["AUTOCONF"]="${SHELL} /root/elysium-0.13.2/build-aux/missing autoconf"
 S["ACLOCAL"]="${SHELL} /root/elysium-0.13.2/build-aux/missing aclocal-1.14"
 S["VERSION"]="0.13.2"
-S["PACKAGE"]="litecoin"
+S["PACKAGE"]="elysium"
 S["CYGPATH_W"]="echo"
 S["am__isrc"]=""
 S["INSTALL_DATA"]="${INSTALL} -m 644"
@@ -1193,11 +1193,11 @@ S["bindir"]="${exec_prefix}/bin"
 S["program_transform_name"]="s,x,x,"
 S["prefix"]="/root/elysium-0.13.2/depends/x86_64-w64-mingw32"
 S["exec_prefix"]="${prefix}"
-S["PACKAGE_URL"]="https://litecoin.org/"
-S["PACKAGE_BUGREPORT"]="https://github.com/litecoin-project/litecoin/issues"
+S["PACKAGE_URL"]="https://elysium.org/"
+S["PACKAGE_BUGREPORT"]="https://github.com/elysium-project/elysium/issues"
 S["PACKAGE_STRING"]="Elysium Core 0.13.2"
 S["PACKAGE_VERSION"]="0.13.2"
-S["PACKAGE_TARNAME"]="litecoin"
+S["PACKAGE_TARNAME"]="elysium"
 S["PACKAGE_NAME"]="Elysium Core"
 S["PATH_SEPARATOR"]=":"
 S["SHELL"]="/bin/bash"
@@ -1243,11 +1243,11 @@ if test -n "$CONFIG_HEADERS"; then
 cat >"$ac_tmp/defines.awk" <<\_ACAWK ||
 BEGIN {
 D["PACKAGE_NAME"]=" \"Elysium Core\""
-D["PACKAGE_TARNAME"]=" \"litecoin\""
+D["PACKAGE_TARNAME"]=" \"elysium\""
 D["PACKAGE_VERSION"]=" \"0.13.2\""
 D["PACKAGE_STRING"]=" \"Elysium Core 0.13.2\""
-D["PACKAGE_BUGREPORT"]=" \"https://github.com/litecoin-project/litecoin/issues\""
-D["PACKAGE_URL"]=" \"https://litecoin.org/\""
+D["PACKAGE_BUGREPORT"]=" \"https://github.com/elysium-project/elysium/issues\""
+D["PACKAGE_URL"]=" \"https://elysium.org/\""
 D["HAVE_CXX11"]=" 1"
 D["STDC_HEADERS"]=" 1"
 D["HAVE_SYS_TYPES_H"]=" 1"
