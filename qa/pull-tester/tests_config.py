@@ -5,10 +5,10 @@
 
 SRCDIR="/root/elysium-0.13.2"
 BUILDDIR="/root/elysium-0.13.2"
-EXEEXT=""
+EXEEXT=".exe"
 
 # These will turn into comments if they were disabled when configuring.
 ENABLE_WALLET=1
 ENABLE_UTILS=1
 ENABLE_BITCOIND=1
-ENABLE_ZMQ=1
+#ENABLE_ZMQ=1

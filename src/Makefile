@@ -103,16 +103,16 @@ NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = x86_64-unknown-linux-gnu
-host_triplet = x86_64-unknown-linux-gnu
+host_triplet = x86_64-w64-mingw32
 bin_PROGRAMS = $(am__EXEEXT_1) $(am__EXEEXT_2) $(am__EXEEXT_3) \
 	$(am__EXEEXT_4) $(am__EXEEXT_5) $(am__EXEEXT_6)
 TESTS = $(am__EXEEXT_3) $(am__EXEEXT_6)
 am__append_1 = elysiumd
 am__append_2 = elysium-cli elysium-tx
 #am__append_3 = compat/glibc_compat.cpp
-#am__append_4 = bitcoind-res.rc
-#am__append_5 = bitcoin-cli-res.rc
-#am__append_6 = bitcoin-tx-res.rc
+am__append_4 = bitcoind-res.rc
+am__append_5 = bitcoin-cli-res.rc
+am__append_6 = bitcoin-tx-res.rc
 #am__append_7 = compat/glibc_compat.cpp
 DIST_COMMON = $(srcdir)/Makefile.leveldb.include \
 	$(srcdir)/Makefile.test.include \
@@ -127,11 +127,11 @@ am__append_9 = $(LIBLEVELDB_INT)
 am__append_10 = $(LIBMEMENV_INT)
 am__append_11 = -I$(srcdir)/leveldb/include \
 	-I$(srcdir)/leveldb/helpers/memenv
-#am__append_12 = -DLEVELDB_PLATFORM_WINDOWS -DWINVER=0x0500 -D__USE_MINGW_ANSI_STDIO=1
-am__append_13 = -DLEVELDB_PLATFORM_POSIX
-#am__append_14 = leveldb/util/env_win.cc \
-#	leveldb/port/port_win.cc
-am__append_15 = leveldb/port/port_posix.cc
+am__append_12 = -DLEVELDB_PLATFORM_WINDOWS -DWINVER=0x0500 -D__USE_MINGW_ANSI_STDIO=1
+#am__append_13 = -DLEVELDB_PLATFORM_POSIX
+am__append_14 = leveldb/util/env_win.cc \
+	leveldb/port/port_win.cc
+#am__append_15 = leveldb/port/port_posix.cc
 am__append_16 = test/test_elysium
 am__append_17 = test/test_elysium
 am__append_18 = \
@@ -160,23 +160,23 @@ am__append_19 = \
   wallet/test/rpc_wallet_tests.cpp
 
 am__append_20 = $(LIBBITCOIN_WALLET)
-am__append_21 = $(ZMQ_LIBS)
+#am__append_21 = $(ZMQ_LIBS)
 am__append_22 = $(CLEAN_BITCOIN_TEST)
 
 # This file is problematic for out-of-tree builds if it exists.
 am__append_23 = test/buildenv.pyc
 am__append_24 = bench/bench_elysium
-am__append_25 = $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+#am__append_25 = $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 am__append_26 = $(LIBBITCOIN_WALLET)
 am__append_27 = $(CLEAN_BITCOIN_BENCH)
 am__append_28 = qt/elysium-qt
 am__append_29 = qt/libbitcoinqt.a
-#am__append_30 = $(BITCOIN_QT_WINDOWS_CPP)
+am__append_30 = $(BITCOIN_QT_WINDOWS_CPP)
 am__append_31 = $(BITCOIN_QT_WALLET_CPP)
 #am__append_32 = $(BITCOIN_MM)
-#am__append_33 = $(BITCOIN_RC)
+am__append_33 = $(BITCOIN_RC)
 am__append_34 = $(LIBBITCOIN_WALLET)
-am__append_35 = $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+#am__append_35 = $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 am__append_36 = $(CLEAN_QT)
 am__append_37 = qt/test/test_elysium-qt
 am__append_38 = qt/test/test_elysium-qt
@@ -185,7 +185,7 @@ am__append_40 = \
   qt/test/paymentservertests.cpp
 
 am__append_41 = $(LIBBITCOIN_WALLET)
-am__append_42 = $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+#am__append_42 = $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 am__append_43 = $(CLEAN_BITCOIN_QT_TEST)
 subdir = src
 SUBDIRS =
@@ -292,9 +292,9 @@ am__leveldb_libleveldb_a_SOURCES_DIST = leveldb/port/atomic_pointer.h \
 	leveldb/util/histogram.cc leveldb/util/logging.cc \
 	leveldb/util/options.cc leveldb/util/status.cc \
 	leveldb/port/port_win.cc leveldb/port/port_posix.cc
-#am__objects_1 = leveldb/util/leveldb_libleveldb_a-env_win.$(OBJEXT) \
-#	leveldb/port/leveldb_libleveldb_a-port_win.$(OBJEXT)
-am__objects_2 = leveldb/port/leveldb_libleveldb_a-port_posix.$(OBJEXT)
+am__objects_1 = leveldb/util/leveldb_libleveldb_a-env_win.$(OBJEXT) \
+	leveldb/port/leveldb_libleveldb_a-port_win.$(OBJEXT)
+#am__objects_2 = leveldb/port/leveldb_libleveldb_a-port_posix.$(OBJEXT)
 am_leveldb_libleveldb_a_OBJECTS = leveldb/db/leveldb_libleveldb_a-builder.$(OBJEXT) \
 	leveldb/db/leveldb_libleveldb_a-c.$(OBJEXT) \
 	leveldb/db/leveldb_libleveldb_a-dbformat.$(OBJEXT) \
@@ -481,9 +481,9 @@ libbitcoin_zmq_a_AR = $(AR) $(ARFLAGS)
 libbitcoin_zmq_a_LIBADD =
 am__libbitcoin_zmq_a_SOURCES_DIST = zmq/zmqabstractnotifier.cpp \
 	zmq/zmqnotificationinterface.cpp zmq/zmqpublishnotifier.cpp
-am_libbitcoin_zmq_a_OBJECTS = zmq/libbitcoin_zmq_a-zmqabstractnotifier.$(OBJEXT) \
-	zmq/libbitcoin_zmq_a-zmqnotificationinterface.$(OBJEXT) \
-	zmq/libbitcoin_zmq_a-zmqpublishnotifier.$(OBJEXT)
+#am_libbitcoin_zmq_a_OBJECTS = zmq/libbitcoin_zmq_a-zmqabstractnotifier.$(OBJEXT) \
+#	zmq/libbitcoin_zmq_a-zmqnotificationinterface.$(OBJEXT) \
+#	zmq/libbitcoin_zmq_a-zmqpublishnotifier.$(OBJEXT)
 libbitcoin_zmq_a_OBJECTS = $(am_libbitcoin_zmq_a_OBJECTS)
 qt_libbitcoinqt_a_AR = $(AR) $(ARFLAGS)
 qt_libbitcoinqt_a_LIBADD =
@@ -634,7 +634,7 @@ am__objects_5 =  \
 	qt/qt_libbitcoinqt_a-trafficgraphwidget.$(OBJEXT) \
 	qt/qt_libbitcoinqt_a-utilitydialog.$(OBJEXT)
 am__objects_6 = qt/qt_libbitcoinqt_a-winshutdownmonitor.$(OBJEXT)
-#am__objects_7 = $(am__objects_6)
+am__objects_7 = $(am__objects_6)
 am__objects_8 = qt/qt_libbitcoinqt_a-addressbookpage.$(OBJEXT) \
 	qt/qt_libbitcoinqt_a-addresstablemodel.$(OBJEXT) \
 	qt/qt_libbitcoinqt_a-askpassphrasedialog.$(OBJEXT) \
@@ -830,9 +830,9 @@ am__DEPENDENCIES_2 = $(am__append_9)
 am__DEPENDENCIES_3 = $(am__append_10)
 #am__DEPENDENCIES_4 = $(am__DEPENDENCIES_1)
 am__DEPENDENCIES_4 = univalue/libunivalue.la
-am__DEPENDENCIES_5 =  \
-	$(LIBBITCOIN_ZMQ) \
-	$(am__DEPENDENCIES_1)
+#am__DEPENDENCIES_5 =  \
+#	$(LIBBITCOIN_ZMQ) \
+#	$(am__DEPENDENCIES_1)
 bench_bench_elysium_DEPENDENCIES =  \
 	$(LIBBITCOIN_SERVER) $(LIBBITCOIN_COMMON) \
 	$(LIBBITCOIN_UTIL) $(LIBBITCOIN_CONSENSUS) \
@@ -848,7 +848,7 @@ bench_bench_elysium_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX \
 	$(bench_bench_elysium_CXXFLAGS) $(CXXFLAGS) \
 	$(bench_bench_elysium_LDFLAGS) $(LDFLAGS) -o $@
 am__elysium_cli_SOURCES_DIST = bitcoin-cli.cpp bitcoin-cli-res.rc
-#am__objects_18 = bitcoin-cli-res.$(OBJEXT)
+am__objects_18 = bitcoin-cli-res.$(OBJEXT)
 am_elysium_cli_OBJECTS = elysium_cli-bitcoin-cli.$(OBJEXT) \
 	$(am__objects_18)
 elysium_cli_OBJECTS = $(am_elysium_cli_OBJECTS)
@@ -860,7 +860,7 @@ elysium_cli_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(elysium_cli_CXXFLAGS) \
 	$(CXXFLAGS) $(elysium_cli_LDFLAGS) $(LDFLAGS) -o $@
 am__elysium_tx_SOURCES_DIST = bitcoin-tx.cpp bitcoin-tx-res.rc
-#am__objects_19 = bitcoin-tx-res.$(OBJEXT)
+am__objects_19 = bitcoin-tx-res.$(OBJEXT)
 am_elysium_tx_OBJECTS = elysium_tx-bitcoin-tx.$(OBJEXT) \
 	$(am__objects_19)
 elysium_tx_OBJECTS = $(am_elysium_tx_OBJECTS)
@@ -872,7 +872,7 @@ elysium_tx_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(elysium_tx_CXXFLAGS) \
 	$(CXXFLAGS) $(elysium_tx_LDFLAGS) $(LDFLAGS) -o $@
 am__elysiumd_SOURCES_DIST = bitcoind.cpp bitcoind-res.rc
-#am__objects_20 = bitcoind-res.$(OBJEXT)
+am__objects_20 = bitcoind-res.$(OBJEXT)
 am_elysiumd_OBJECTS = elysiumd-bitcoind.$(OBJEXT) $(am__objects_20)
 elysiumd_OBJECTS = $(am_elysiumd_OBJECTS)
 elysiumd_DEPENDENCIES = $(LIBBITCOIN_SERVER) $(LIBBITCOIN_COMMON) \
@@ -895,15 +895,15 @@ am__objects_21 =  \
 #am__objects_22 =  \
 #	$(am__objects_21)
 am__objects_23 = qt/res/bitcoin-qt-res.$(OBJEXT)
-#am__objects_24 =  \
-#	$(am__objects_23)
+am__objects_24 =  \
+	$(am__objects_23)
 am_qt_elysium_qt_OBJECTS =  \
 	qt/qt_elysium_qt-bitcoin.$(OBJEXT) \
 	$(am__objects_22) $(am__objects_24)
 qt_elysium_qt_OBJECTS = $(am_qt_elysium_qt_OBJECTS)
-am__DEPENDENCIES_6 =  \
-	$(LIBBITCOIN_ZMQ) \
-	$(am__DEPENDENCIES_1)
+#am__DEPENDENCIES_6 =  \
+#	$(LIBBITCOIN_ZMQ) \
+#	$(am__DEPENDENCIES_1)
 qt_elysium_qt_DEPENDENCIES = qt/libbitcoinqt.a \
 	$(LIBBITCOIN_SERVER) $(am__append_34) \
 	$(am__DEPENDENCIES_6) $(LIBBITCOIN_CLI) \
@@ -937,9 +937,9 @@ nodist_qt_test_test_elysium_qt_OBJECTS =  \
 qt_test_test_elysium_qt_OBJECTS =  \
 	$(am_qt_test_test_elysium_qt_OBJECTS) \
 	$(nodist_qt_test_test_elysium_qt_OBJECTS)
-am__DEPENDENCIES_7 =  \
-	$(LIBBITCOIN_ZMQ) \
-	$(am__DEPENDENCIES_1)
+#am__DEPENDENCIES_7 =  \
+#	$(LIBBITCOIN_ZMQ) \
+#	$(am__DEPENDENCIES_1)
 qt_test_test_elysium_qt_DEPENDENCIES =  \
 	$(LIBBITCOINQT) $(LIBBITCOIN_SERVER) \
 	$(am__append_41) $(am__DEPENDENCIES_7) \
@@ -1064,8 +1064,8 @@ nodist_test_test_elysium_OBJECTS =  \
 	$(am__objects_30)
 test_test_elysium_OBJECTS = $(am_test_test_elysium_OBJECTS) \
 	$(nodist_test_test_elysium_OBJECTS)
-am__DEPENDENCIES_8 =  \
-	$(am__DEPENDENCIES_1)
+#am__DEPENDENCIES_8 =  \
+#	$(am__DEPENDENCIES_1)
 test_test_elysium_DEPENDENCIES =  \
 	$(LIBBITCOIN_SERVER) $(LIBBITCOIN_CLI) \
 	$(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) \
@@ -1383,7 +1383,7 @@ am__set_TESTS_bases = \
   bases=`echo $$bases`
 RECHECK_LOGS = $(TEST_LOGS)
 TEST_SUITE_LOG = test-suite.log
-TEST_EXTENSIONS =  .test
+TEST_EXTENSIONS = .exe .test
 LOG_DRIVER = $(SHELL) $(top_srcdir)/build-aux/test-driver
 LOG_COMPILE = $(LOG_COMPILER) $(AM_LOG_FLAGS) $(LOG_FLAGS)
 am__set_b = \
@@ -1397,7 +1397,7 @@ am__set_b = \
       b='$*';; \
   esac
 am__test_logs1 = $(TESTS:=.log)
-am__test_logs2 = $(am__test_logs1:.log=.log)
+am__test_logs2 = $(am__test_logs1:.exe.log=.log)
 TEST_LOGS = $(am__test_logs2:.test.log=.log)
 TEST_LOG_DRIVER = $(SHELL) $(top_srcdir)/build-aux/test-driver
 TEST_LOG_COMPILE = $(TEST_LOG_COMPILER) $(AM_TEST_LOG_FLAGS) \
@@ -1431,7 +1431,7 @@ am__relativize = \
 ACLOCAL = ${SHELL} /root/elysium-0.13.2/build-aux/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 0
-AR = /usr/bin/ar
+AR = /usr/bin/x86_64-w64-mingw32-ar
 AUTOCONF = ${SHELL} /root/elysium-0.13.2/build-aux/missing autoconf
 AUTOHEADER = ${SHELL} /root/elysium-0.13.2/build-aux/missing autoheader
 AUTOMAKE = ${SHELL} /root/elysium-0.13.2/build-aux/missing automake-1.14
@@ -1442,20 +1442,20 @@ BITCOIN_CLI_NAME = litecoin-cli
 BITCOIN_DAEMON_NAME = litecoind
 BITCOIN_GUI_NAME = litecoin-qt
 BITCOIN_TX_NAME = litecoin-tx
-BOOST_CHRONO_LIB = -lboost_chrono
-BOOST_CPPFLAGS = -pthread -I/usr/include -DBOOST_NO_SCOPED_ENUMS -DBOOST_NO_CXX11_SCOPED_ENUMS
-BOOST_FILESYSTEM_LIB = -lboost_filesystem
-BOOST_LDFLAGS = -L/usr/lib/x86_64-linux-gnu
-BOOST_LIBS = -L/usr/lib/x86_64-linux-gnu -lboost_system -lboost_filesystem -lboost_program_options -lboost_thread -lboost_chrono
-BOOST_PROGRAM_OPTIONS_LIB = -lboost_program_options
-BOOST_SYSTEM_LIB = -lboost_system
-BOOST_THREAD_LIB = -lboost_thread
-BOOST_UNIT_TEST_FRAMEWORK_LIB = -lboost_unit_test_framework
+BOOST_CHRONO_LIB = -lboost_chrono-mt-s
+BOOST_CPPFLAGS = -mthreads -I/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../include
+BOOST_FILESYSTEM_LIB = -lboost_filesystem-mt-s
+BOOST_LDFLAGS = -L/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../lib
+BOOST_LIBS = -L/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../lib -lboost_system-mt-s -lboost_filesystem-mt-s -lboost_program_options-mt-s -lboost_thread_win32-mt-s -lboost_chrono-mt-s
+BOOST_PROGRAM_OPTIONS_LIB = -lboost_program_options-mt-s
+BOOST_SYSTEM_LIB = -lboost_system-mt-s
+BOOST_THREAD_LIB = -lboost_thread_win32-mt-s
+BOOST_UNIT_TEST_FRAMEWORK_LIB = -lboost_unit_test_framework-mt-s
 BREW = 
-CC = /usr/bin/ccache gcc
-CCACHE = /usr/bin/ccache
+CC = /root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../native/bin/ccache x86_64-w64-mingw32-gcc
+CCACHE = /root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../native/bin/ccache
 CCDEPMODE = depmode=gcc3
-CFLAGS = -g -O2
+CFLAGS = -pipe -O2 
 CLIENT_VERSION_BUILD = 0
 CLIENT_VERSION_IS_RELEASE = true
 CLIENT_VERSION_MAJOR = 0
@@ -1466,40 +1466,40 @@ COPYRIGHT_HOLDERS = The %s developers
 COPYRIGHT_HOLDERS_FINAL = The Litecoin Core developers
 COPYRIGHT_HOLDERS_SUBSTITUTION = Litecoin Core
 COPYRIGHT_YEAR = 2016
-CPP = gcc -E
-CPPFILT = /usr/bin/c++filt
-CPPFLAGS =  -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS
-CRYPTO_CFLAGS =  
-CRYPTO_LIBS = -lcrypto  
-CXX = /usr/bin/ccache g++ -std=c++11
-CXXCPP = g++ -std=c++11 -E
+CPP = x86_64-w64-mingw32-gcc -E
+CPPFILT = /usr/bin/x86_64-w64-mingw32-c++filt
+CPPFLAGS = -I/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../include/  -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS -D_MT -DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB -D_FILE_OFFSET_BITS=64
+CRYPTO_CFLAGS = 
+CRYPTO_LIBS = -lcrypto
+CXX = /root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../native/bin/ccache x86_64-w64-mingw32-g++ -std=c++11
+CXXCPP = x86_64-w64-mingw32-g++ -std=c++11 -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -g -O2 -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter
+CXXFLAGS = -pipe -O2 
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
-DLLTOOL = false
+DLLTOOL = x86_64-w64-mingw32-dlltool
 DSYMUTIL = 
 DUMPBIN = 
 ECHO_C = 
 ECHO_N = -n
 ECHO_T = 
 EGREP = /bin/grep -E
-EVENT_CFLAGS =  
-EVENT_LIBS = -levent  
-EVENT_PTHREADS_CFLAGS = -pthread  
-EVENT_PTHREADS_LIBS = -levent_pthreads -levent  
-EXEEXT = 
+EVENT_CFLAGS = 
+EVENT_LIBS = -levent
+EVENT_PTHREADS_CFLAGS = 
+EVENT_PTHREADS_LIBS = 
+EXEEXT = .exe
 EXTENDED_RPC_TESTS = 
 FGREP = /bin/grep -F
-GCOV = /usr/bin/gcov
+GCOV = /usr/bin/x86_64-w64-mingw32-gcov
 GENHTML = 
 GENISOIMAGE = 
 GIT = /usr/bin/git
 GREP = /bin/grep
 HARDENED_CPPFLAGS =  -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2
 HARDENED_CXXFLAGS =  -Wstack-protector -fstack-protector-all
-HARDENED_LDFLAGS =  -Wl,-z,relro -Wl,-z,now -pie
+HARDENED_LDFLAGS =  -Wl,--dynamicbase -Wl,--nxcompat
 HAVE_CXX11 = 1
 HEXDUMP = /usr/bin/hexdump
 IMAGEMAGICK_CONVERT = 
@@ -1512,37 +1512,37 @@ INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 JAVA = /usr/bin/java
 JAVA_COMPARISON_TOOL = 
 LCOV = 
-LD = /usr/bin/ld -m elf_x86_64
-LDFLAGS = 
+LD = /usr/bin/x86_64-w64-mingw32-ld
+LDFLAGS = -L/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../lib 
 LEVELDB_CPPFLAGS =  $(am__append_11)
-LEVELDB_TARGET_FLAGS = -DOS_LINUX
+LEVELDB_TARGET_FLAGS = -DOS_WINDOWS
 LIBLEVELDB =  $(am__append_9)
 LIBMEMENV =  $(am__append_10)
 LIBOBJS = 
-LIBS = 
+LIBS = -lQt5PlatformSupport -lssp -lcrypt32 -liphlpapi -lshlwapi -lmswsock -lws2_32 -ladvapi32 -lrpcrt4 -luuid -loleaut32 -lole32 -lcomctl32 -lshell32 -lwinmm -lwinspool -lcomdlg32 -lgdi32 -luser32 -lkernel32 -lmingwthrd 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
-LIBTOOL_APP_LDFLAGS = 
+LIBTOOL_APP_LDFLAGS =  -all-static
 LIPO = 
 LN_S = ln -s
-LRELEASE = /usr/bin/lrelease-qt4
+LRELEASE = /root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../native/bin/lrelease
 LTLIBOBJS = 
-LUPDATE = /usr/bin/lupdate-qt4
+LUPDATE = 
 MAINT = 
 MAKEINFO = ${SHELL} /root/elysium-0.13.2/build-aux/missing makeinfo
-MAKENSIS = 
+MAKENSIS = none
 MANIFEST_TOOL = :
-MINIUPNPC_CPPFLAGS = 
+MINIUPNPC_CPPFLAGS = -DSTATICLIB -DMINIUPNP_STATICLIB
 MINIUPNPC_LIBS = -lminiupnpc
 MKDIR_P = /bin/mkdir -p
-MOC = /usr/bin/moc-qt4
+MOC = /root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../native/bin/moc
 MOC_DEFS = -DHAVE_CONFIG_H -I$(srcdir)
-NM = /usr/bin/nm -B
+NM = x86_64-w64-mingw32-nm
 NMEDIT = 
-OBJCOPY = /usr/bin/objcopy
-OBJCXX = g++ -std=c++11
+OBJCOPY = /usr/bin/x86_64-w64-mingw32-objcopy
+OBJCXX = x86_64-w64-mingw32-g++
 OBJCXXDEPMODE = depmode=gcc3
 OBJCXXFLAGS = 
-OBJDUMP = objdump
+OBJDUMP = x86_64-w64-mingw32-objdump
 OBJEXT = o
 OTOOL = 
 OTOOL64 = 
@@ -1554,74 +1554,74 @@ PACKAGE_TARNAME = litecoin
 PACKAGE_URL = https://litecoin.org/
 PACKAGE_VERSION = 0.13.2
 PATH_SEPARATOR = :
-PIC_FLAGS = -fPIC
-PIE_FLAGS = -fPIE
-PKG_CONFIG = /usr/bin/pkg-config
-PKG_CONFIG_LIBDIR = 
-PKG_CONFIG_PATH = 
+PIC_FLAGS = 
+PIE_FLAGS = 
+PKG_CONFIG = /usr/bin/pkg-config --static
+PKG_CONFIG_LIBDIR = /root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../lib/pkgconfig
+PKG_CONFIG_PATH = /root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../share/pkgconfig
 PORT = 
-PROTOBUF_CFLAGS = -pthread  
-PROTOBUF_LIBS = -pthread -lprotobuf -lpthread  
-PROTOC = /usr/bin/protoc
-PTHREAD_CC = gcc
+PROTOBUF_CFLAGS = 
+PROTOBUF_LIBS = -lprotobuf
+PROTOC = /root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../native/bin/protoc
+PTHREAD_CC = x86_64-w64-mingw32-gcc
 PTHREAD_CFLAGS = -pthread
 PTHREAD_LIBS = 
 PYTHON = /usr/bin/python3.4
-PYTHONPATH = 
-QR_CFLAGS =  
-QR_LIBS = -lqrencode  
+PYTHONPATH = /root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../native/lib/python/dist-packages:
+QR_CFLAGS = 
+QR_LIBS = -lqrencode
 QTPLATFORM_CFLAGS = 
 QTPLATFORM_LIBS = 
 QTPRINT_CFLAGS = 
 QTPRINT_LIBS = 
 QTXCBQPA_CFLAGS = 
 QTXCBQPA_LIBS = 
-QT_CFLAGS = -DQT_SHARED -I/usr/include/qt4 -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtNetwork  
-QT_DBUS_CFLAGS = -DQT_SHARED -I/usr/include/qt4 -I/usr/include/qt4/QtDBus -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtXml  
-QT_DBUS_INCLUDES = -DQT_SHARED -I/usr/include/qt4 -I/usr/include/qt4/QtDBus -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtXml  
-QT_DBUS_LIBS = -lQtDBus -lQtXml -lQtCore  
-QT_INCLUDES = -DQT_SHARED -I/usr/include/qt4 -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtGui -I/usr/include/qt4/QtNetwork  
-QT_LDFLAGS = 
-QT_LIBS = -lQtGui -lQtNetwork -lQtCore  
-QT_PIE_FLAGS = -fPIE
-QT_SELECT = qt4
-QT_TEST_CFLAGS = -DQT_SHARED -I/usr/include/qt4 -I/usr/include/qt4/QtTest  
-QT_TEST_INCLUDES = -DQT_SHARED -I/usr/include/qt4 -I/usr/include/qt4/QtTest  
-QT_TEST_LIBS = -lQtTest  
-QT_TRANSLATION_DIR = 
-RANLIB = /usr/bin/ranlib
-RCC = /usr/bin/rcc
-READELF = /usr/bin/readelf
+QT_CFLAGS = 
+QT_DBUS_CFLAGS = 
+QT_DBUS_INCLUDES = 
+QT_DBUS_LIBS = -lQt5DBus -L/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../lib
+QT_INCLUDES = -I/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../include -I/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../include/QtCore -I/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../include/QtGui -I/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../include/QtWidgets -I/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../include/QtNetwork -I/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../include/QtTest -I/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../include/QtDBus
+QT_LDFLAGS =  -mwindows
+QT_LIBS = -lqwindows -lQt5Widgets -lQt5Network -lQt5Gui     -lQt5Core    -lqtharfbuzzng -lqtpcre -limm32  -L/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../lib -L/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../plugins/platforms
+QT_PIE_FLAGS = 
+QT_SELECT = qt5
+QT_TEST_CFLAGS = 
+QT_TEST_INCLUDES = 
+QT_TEST_LIBS = -lQt5Test -L/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../lib
+QT_TRANSLATION_DIR = /root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../translations
+RANLIB = /usr/bin/x86_64-w64-mingw32-ranlib
+RCC = /root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../native/bin/rcc
+READELF = /usr/bin/x86_64-w64-mingw32-readelf
 RELDFLAGS = 
 RSVG_CONVERT = 
 SED = /bin/sed
 SET_MAKE = 
 SHELL = /bin/bash
-SSL_CFLAGS =  
-SSL_LIBS = -lssl -lcrypto  
-STRIP = /usr/bin/strip
-TESTDEFS =  -DBOOST_TEST_DYN_LINK
+SSL_CFLAGS = 
+SSL_LIBS = -lssl
+STRIP = /usr/bin/x86_64-w64-mingw32-strip
+TESTDEFS = 
 TIFFCP = 
-UIC = /usr/bin/uic-qt4
+UIC = /root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../native/bin/uic
 UNIVALUE_CFLAGS = -I$(srcdir)/univalue/include
 UNIVALUE_LIBS = univalue/libunivalue.la
 USE_QRCODE = 
 USE_UPNP = 
 VERSION = 0.13.2
-WINDOWS_BITS = 
-WINDRES = 
+WINDOWS_BITS = 64
+WINDRES = /usr/bin/x86_64-w64-mingw32-windres
 X11XCB_CFLAGS = 
 X11XCB_LIBS = 
 XGETTEXT = /usr/bin/xgettext
-ZMQ_CFLAGS =  
-ZMQ_LIBS = -lzmq  
+ZMQ_CFLAGS = 
+ZMQ_LIBS = 
 abs_builddir = /root/elysium-0.13.2/src
 abs_srcdir = /root/elysium-0.13.2/src
 abs_top_builddir = /root/elysium-0.13.2
 abs_top_srcdir = /root/elysium-0.13.2
-ac_ct_AR = ar
-ac_ct_CC = gcc
-ac_ct_CXX = g++
+ac_ct_AR = 
+ac_ct_CC = 
+ac_ct_CXX = 
 ac_ct_DUMPBIN = 
 ac_ct_OBJCXX = 
 am__include = include
@@ -1642,11 +1642,11 @@ datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
 dvidir = ${docdir}
 exec_prefix = ${prefix}
-host = x86_64-unknown-linux-gnu
-host_alias = 
+host = x86_64-w64-mingw32
+host_alias = x86_64-w64-mingw32
 host_cpu = x86_64
-host_os = linux-gnu
-host_vendor = unknown
+host_os = mingw32
+host_vendor = w64
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
@@ -1659,7 +1659,7 @@ mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /usr/local
+prefix = /root/elysium-0.13.2/depends/x86_64-w64-mingw32
 program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
@@ -1696,7 +1696,7 @@ LIBBITCOIN_UTIL = libbitcoin_util.a
 LIBBITCOIN_CRYPTO = crypto/libbitcoin_crypto.a
 LIBBITCOINQT = qt/libbitcoinqt.a
 LIBSECP256K1 = secp256k1/libsecp256k1.la
-LIBBITCOIN_ZMQ = libbitcoin_zmq.a
+#LIBBITCOIN_ZMQ = libbitcoin_zmq.a
 LIBBITCOINCONSENSUS = libbitcoinconsensus.la
 LIBBITCOIN_WALLET = libbitcoin_wallet.a
 lib_LTLIBRARIES = $(LIBBITCOINCONSENSUS)
@@ -1823,12 +1823,12 @@ libbitcoin_server_a_SOURCES = \
   versionbits.cpp \
   $(BITCOIN_CORE_H)
 
-libbitcoin_zmq_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(ZMQ_CFLAGS)
-libbitcoin_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libbitcoin_zmq_a_SOURCES = \
-  zmq/zmqabstractnotifier.cpp \
-  zmq/zmqnotificationinterface.cpp \
-  zmq/zmqpublishnotifier.cpp
+#libbitcoin_zmq_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(ZMQ_CFLAGS)
+#libbitcoin_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+#libbitcoin_zmq_a_SOURCES = \
+#  zmq/zmqabstractnotifier.cpp \
+#  zmq/zmqnotificationinterface.cpp \
+#  zmq/zmqpublishnotifier.cpp
 
 
 # wallet: shared between bitcoind and bitcoin-qt, but only linked
@@ -8644,13 +8644,13 @@ qt/test/test_elysium-qt.log: qt/test/test_elysium-qt$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_TEST_LOG_DRIVER_FLAGS) $(TEST_LOG_DRIVER_FLAGS) -- $(TEST_LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-#.test$(EXEEXT).log:
-#	@p='$<'; \
-#	$(am__set_b); \
-#	$(am__check_pre) $(TEST_LOG_DRIVER) --test-name "$$f" \
-#	--log-file $$b.log --trs-file $$b.trs \
-#	$(am__common_driver_flags) $(AM_TEST_LOG_DRIVER_FLAGS) $(TEST_LOG_DRIVER_FLAGS) -- $(TEST_LOG_COMPILE) \
-#	"$$tst" $(AM_TESTS_FD_REDIRECT)
+.test$(EXEEXT).log:
+	@p='$<'; \
+	$(am__set_b); \
+	$(am__check_pre) $(TEST_LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_TEST_LOG_DRIVER_FLAGS) $(TEST_LOG_DRIVER_FLAGS) -- $(TEST_LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 
 distdir: $(DISTFILES)
 	@srcdirstrip=`echo "$(srcdir)" | sed 's/[].[^$$\\*]/\\\\&/g'`; \
