@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # libtool - Provide generalized library-building support services.
-# Generated automatically by config.status (litecoin) 0.13.2
+# Generated automatically by config.status (elysium) 0.13.2
 # Libtool was configured on host 1033651:
 # NOTE: Changes made to this file will be lost: look at ltmain.sh.
 #
@@ -44,10 +44,10 @@ macro_version=2.4.2
 macro_revision=1.3337
 
 # What type of objects to build.
-pic_mode=default
+pic_mode=yes
 
 # Whether or not to build shared libraries.
-build_libtool_libs=yes
+build_libtool_libs=no
 
 # Whether or not to build static libraries.
 build_old_libs=yes
@@ -96,7 +96,7 @@ NM="x86_64-w64-mingw32-nm"
 LN_S="ln -s"
 
 # What is the maximum length of a command?
-max_cmd_len=1966080
+max_cmd_len=3458764513820540925
 
 # Object file suffix (normally "o").
 objext=o
