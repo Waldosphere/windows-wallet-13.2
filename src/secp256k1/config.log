@@ -761,7 +761,7 @@ configure:13905: $PKG_CONFIG --exists --print-errors "libcrypto"
 configure:13908: $? = 0
 configure:13946: result: yes
 configure:13953: checking for main in -lcrypto
-configure:13972: x86_64-w64-mingw32-gcc -o conftest.exe -pipe -O2  -W -std=c89 -pedantic -Wall -Wextra -Wcast-align -Wnested-externs -Wshadow -Wstrict-prototypes -Wno-unused-function -Wno-long-long -Wno-overlength-strings -fvisibility=hidden -I/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../include/  -L/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../lib  conftest.c -lcrypto   -L/root/litecoin-master/depends/x86_64-w64-mingw32/lib -lcrypto -lws2_32 -lgdi32 -lcrypt32   >&5
+configure:13972: x86_64-w64-mingw32-gcc -o conftest.exe -pipe -O2  -W -std=c89 -pedantic -Wall -Wextra -Wcast-align -Wnested-externs -Wshadow -Wstrict-prototypes -Wno-unused-function -Wno-long-long -Wno-overlength-strings -fvisibility=hidden -I/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../include/  -L/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../lib  conftest.c -lcrypto   -L/root/elysium-master/depends/x86_64-w64-mingw32/lib -lcrypto -lws2_32 -lgdi32 -lcrypt32   >&5
 conftest.c:33:1: warning: function declaration isn't a prototype [-Wstrict-prototypes]
  main ()
  ^
@@ -1052,8 +1052,8 @@ lt_cv_sys_global_symbol_to_cdecl='sed -n -e '\''s/^T .* \(.*\)$/extern int \1();
 lt_cv_sys_max_cmd_len=1966080
 lt_cv_to_host_file_cmd=func_convert_file_nix_to_w32
 lt_cv_to_tool_file_cmd=func_convert_file_noop
-pkg_cv_CRYPTO_CFLAGS='-I/root/litecoin-master/depends/x86_64-w64-mingw32/include  '
-pkg_cv_CRYPTO_LIBS='-L/root/litecoin-master/depends/x86_64-w64-mingw32/lib -lcrypto -lws2_32 -lgdi32 -lcrypt32  '
+pkg_cv_CRYPTO_CFLAGS='-I/root/elysium-master/depends/x86_64-w64-mingw32/include  '
+pkg_cv_CRYPTO_LIBS='-L/root/elysium-master/depends/x86_64-w64-mingw32/lib -lcrypto -lws2_32 -lgdi32 -lcrypt32  '
 
 ## ----------------- ##
 ## Output variables. ##
@@ -1088,8 +1088,8 @@ CPP='x86_64-w64-mingw32-gcc -E'
 CPPFLAGS='-I/root/elysium-0.13.2/depends/x86_64-w64-mingw32/share/../include/ '
 CPPFLAGS_FOR_BUILD=''
 CPP_FOR_BUILD='gcc -E'
-CRYPTO_CFLAGS='-I/root/litecoin-master/depends/x86_64-w64-mingw32/include  '
-CRYPTO_LIBS='-L/root/litecoin-master/depends/x86_64-w64-mingw32/lib -lcrypto -lws2_32 -lgdi32 -lcrypt32  '
+CRYPTO_CFLAGS='-I/root/elysium-master/depends/x86_64-w64-mingw32/include  '
+CRYPTO_LIBS='-L/root/elysium-master/depends/x86_64-w64-mingw32/lib -lcrypto -lws2_32 -lgdi32 -lcrypt32  '
 CYGPATH_W='echo'
 DEFS='-DHAVE_CONFIG_H'
 DEPDIR='.deps'
@@ -1145,8 +1145,8 @@ PORT=''
 RANLIB='/usr/bin/x86_64-w64-mingw32-ranlib'
 SECP_INCLUDES=''
 SECP_LIBS=''
-SECP_TEST_INCLUDES=' -I/root/litecoin-master/depends/x86_64-w64-mingw32/include  '
-SECP_TEST_LIBS='-L/root/litecoin-master/depends/x86_64-w64-mingw32/lib -lcrypto -lws2_32 -lgdi32 -lcrypt32   -lgdi32'
+SECP_TEST_INCLUDES=' -I/root/elysium-master/depends/x86_64-w64-mingw32/include  '
+SECP_TEST_LIBS='-L/root/elysium-master/depends/x86_64-w64-mingw32/lib -lcrypto -lws2_32 -lgdi32 -lcrypt32   -lgdi32'
 SED='/bin/sed'
 SET_MAKE=''
 SHELL='/bin/bash'

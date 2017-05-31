@@ -309,7 +309,7 @@
 #define LT_OBJDIR ".libs/"
 
 /* Define to the address where bug reports for this package should be sent. */
-#define PACKAGE_BUGREPORT "https://github.com/litecoin-project/litecoin/issues"
+#define PACKAGE_BUGREPORT "https://github.com/elysium-project/elysium/issues"
 
 /* Define to the full name of this package. */
 #define PACKAGE_NAME "Elysium Core"
@@ -318,10 +318,10 @@
 #define PACKAGE_STRING "Elysium Core 0.13.2"
 
 /* Define to the one symbol short name of this package. */
-#define PACKAGE_TARNAME "litecoin"
+#define PACKAGE_TARNAME "elysium"
 
 /* Define to the home page for this package. */
-#define PACKAGE_URL "https://litecoin.org/"
+#define PACKAGE_URL "https://elysium.org/"
 
 /* Define to the version of this package. */
 #define PACKAGE_VERSION "0.13.2"
